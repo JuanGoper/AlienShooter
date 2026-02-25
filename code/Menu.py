@@ -4,7 +4,7 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, C_BLACK, C_GREEN, MENU_OPTION
+from code.Const import WIN_WIDTH, C_BLACK, MENU_OPTION, C_BLUE
 
 
 class Menu:
@@ -26,15 +26,14 @@ class Menu:
                 if i == menu_option:
                     self.menu_optext(25, MENU_OPTION[i], C_BLACK, ((WIN_WIDTH / 2), 200 + 20 * i))
                 else:
-                    self.menu_optext(20, MENU_OPTION[i], C_GREEN, ((WIN_WIDTH / 2), 200 + 20 * i))
+                    self.menu_optext(20, MENU_OPTION[i], C_BLUE, ((WIN_WIDTH / 2), 200 + 20 * i))
 
             pygame.display.flip()
 
-            # Check for all events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()  # Close Window
-                    quit()  # End Pygame
+                    pygame.quit()
+                    quit()
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:

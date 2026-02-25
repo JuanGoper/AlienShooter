@@ -8,6 +8,7 @@ from pygame.font import Font
 from code.Const import C_BLACK, SCORE_POS, MENU_OPTION, C_CYAN, C_PURPLE
 from code.DBProxy import DBProxy
 
+
 def get_formatted_date():
     current_datetime = datetime.now()
     current_time = current_datetime.strftime("%H:%M")
@@ -74,7 +75,8 @@ class Score:
         db_proxy.close()
         for player_score in list_score:
             id_, name, score, date = player_score
-            self.score_text(20, f'    {name}              {score :05d}            {date}', C_BLACK, SCORE_POS[list_score.index(player_score)])
+            self.score_text(20, f'    {name}              {score :05d}            {date}', C_BLACK,
+                            SCORE_POS[list_score.index(player_score)])
 
         while True:
             for event in pygame.event.get():
@@ -86,13 +88,11 @@ class Score:
                         return
             pygame.display.flip()
 
-
     def score_teletext(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name='FoundationOne', size=text_size)
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
-
 
     def score_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name='Sylfaen', size=text_size)
