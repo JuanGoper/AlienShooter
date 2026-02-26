@@ -7,7 +7,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_HEIGHT, C_BLACK, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME, C_CYAN, C_PURPLE, EVENT_TIMEOUT, \
+from code.Const import C_BLACK, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME, C_CYAN, C_PURPLE, EVENT_TIMEOUT, \
     TIMEOUT_STEP, TIMEOUT_LEVEL
 from code.Enemy import Enemy
 from code.Entity import Entity

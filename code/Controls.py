@@ -18,7 +18,6 @@ class Controls:
         pass
 
     def show(self):
-        ctrls_player1 = 0
         self.window.blit(source=self.surf, dest=self.rect)
         self.controls_teletext(48, 'CONTROLS', C_BLACK, CONTROLS_POS['Title'])
         self.labels_text(20, 'Player 1', C_PURPLE, CONTROLS_POS['Label1'])

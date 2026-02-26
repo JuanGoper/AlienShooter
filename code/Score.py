@@ -75,7 +75,7 @@ class Score:
         db_proxy.close()
         for player_score in list_score:
             id_, name, score, date = player_score
-            self.score_text(20, f'    {name}              {score :05d}            {date}', C_BLACK,
+            self.score_text(20, f'    {name}              {score :.0f}            {date}', C_BLACK,
                             SCORE_POS[list_score.index(player_score)])
 
         while True:
