@@ -4,7 +4,7 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, C_BLACK, MENU_OPTION, C_BLUE
+from code.Const import WIN_WIDTH, C_BLACK, MENU_OPTION, C_BLUE, WIN_HEIGHT
 
 
 class Menu:
@@ -21,12 +21,16 @@ class Menu:
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(50, "Alien", C_BLACK, ((WIN_WIDTH / 2), 70))
             self.menu_text(50, "Shooter", C_BLACK, ((WIN_WIDTH / 2), 120))
+            self.menu_controls(18, "Controls", C_BLACK, (40, (WIN_HEIGHT - 45)))
+            self.menu_controls(15, "Player 1 | Move: Arrow keys | Shoot: Right Ctrl", C_BLACK, (160, (WIN_HEIGHT - 25)))
+            self.menu_controls(15, "Player 2 | Move: W, S, A, D | Shoot: Left Ctrl", C_BLACK,
+                               (152, (WIN_HEIGHT - 12)))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_optext(25, MENU_OPTION[i], C_BLACK, ((WIN_WIDTH / 2), 200 + 20 * i))
+                    self.menu_optext(25, MENU_OPTION[i], C_BLACK, ((WIN_WIDTH / 2), 190 + 20 * i))
                 else:
-                    self.menu_optext(20, MENU_OPTION[i], C_BLUE, ((WIN_WIDTH / 2), 200 + 20 * i))
+                    self.menu_optext(20, MENU_OPTION[i], C_BLUE, ((WIN_WIDTH / 2), 190 + 20 * i))
 
             pygame.display.flip()
 
@@ -57,6 +61,12 @@ class Menu:
 
     def menu_optext(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name='Sylfaen', size=text_size)
+        text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
+        text_rect: Rect = text_surf.get_rect(center=text_center_pos)
+        self.window.blit(source=text_surf, dest=text_rect)
+
+    def menu_controls(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
+        text_font: Font = pygame.font.SysFont(name='Sylfaen', size=text_size, bold=True)
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)

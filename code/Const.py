@@ -7,16 +7,6 @@ C_WHITE = 255, 255, 255
 C_CYAN = 0, 128, 128
 C_PURPLE = 135, 67, 165
 C_BLUE = 21, 55, 96
-C_PLAYER1 = ('Up - Up arrow',
-             'Down - Down arrow',
-             'Left - Left arrow',
-             'Right - Right arrow',
-             'Shoot - Right Ctrl')
-C_PLAYER2 = ('Up - W',
-             'Down - S',
-             'Left - A',
-             'Right - D',
-             'Shoot - Left Ctrl')
 
 # E
 ENTITY_HEALTH = {
@@ -106,7 +96,6 @@ MENU_OPTION = (' NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
                'NEW GAME 2P - COMPETITIVE',
                'SCORE',
-               'CONTROLS',
                'EXIT')
 
 # P
@@ -148,7 +137,4 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              8: (WIN_WIDTH / 2, 270),
              9: (WIN_WIDTH / 2, 290)}
 
-CONTROLS_POS = {'Title': (WIN_WIDTH / 2, 50),
-                'Label1': (WIN_WIDTH / 3, 90),
-                'Label2': ((WIN_WIDTH / 3 * 2), 90),
-                'P1Ctrls': (WIN_WIDTH / 3, 110)}
+
